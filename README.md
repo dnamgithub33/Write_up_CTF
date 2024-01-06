@@ -3,3 +3,4 @@
 
     Đề bài cho ta source code của trang web như sau:
     
+    [img]()
