@@ -26,3 +26,33 @@
     ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/015ada975dfdc753782e42777e5cf646e1298ea0/image_iris/5.png)
 
     flag: ```irisctf{my_p422W0RD_1S_SQl1}```
+# Grey cat the flag 2024
+1. Baby Web
+
+    Đề bài cho ta source như sau
+
+    ![img](1)
+
+    Trang web xác thực người dùng bằng ```session``` với key là ```baby-web```, trang sẽ trả về flag khi người dùng admin ở trong session.
+
+    Để đơn giản nhất, ta sửa lại đoạn code được cho như sau:
+
+    ![img](2)
+
+    Chạy và lấy được session có admin:
+
+    ![img](3)
+
+    Thay thế session vào web của chall:
+
+    ![img](4)
+
+    Xem HTML mà web trả về, ta thấy có đoạn mà web cho phép redirect sang ```/flag```
+
+    ![img](5)
+
+    Chuyển hướng URL đến ```/flag``` và tìm được flag:
+
+    ![img](6)
+
+    flag:```grey{0h_n0_mY_5up3r_53cr3t_4dm1n_fl4g}```
