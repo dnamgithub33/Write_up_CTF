@@ -31,28 +31,28 @@
 
     Đề bài cho ta source như sau
 
-    ![img](1)
+    ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/7df287f7c2fc34abeac2180dfbc2e03aad1261b1/image_grey/1.png)
 
     Trang web xác thực người dùng bằng ```session``` với key là ```baby-web```, trang sẽ trả về flag khi người dùng admin ở trong session.
 
     Để đơn giản nhất, ta sửa lại đoạn code được cho như sau:
 
-    ![img](2)
+    ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/7df287f7c2fc34abeac2180dfbc2e03aad1261b1/image_grey/2.png)
 
     Chạy và lấy được session có admin:
 
-    ![img](3)
+    ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/7df287f7c2fc34abeac2180dfbc2e03aad1261b1/image_grey/3.png)
 
     Thay thế session vào web của chall:
 
-    ![img](4)
+    ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/7df287f7c2fc34abeac2180dfbc2e03aad1261b1/image_grey/4.png)
 
     Xem HTML mà web trả về, ta thấy có đoạn mà web cho phép redirect sang ```/flag```
 
-    ![img](5)
+    ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/7df287f7c2fc34abeac2180dfbc2e03aad1261b1/image_grey/5.png)
 
     Chuyển hướng URL đến ```/flag``` và tìm được flag:
 
-    ![img](6)
+    ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/7df287f7c2fc34abeac2180dfbc2e03aad1261b1/image_grey/6.png)
 
     flag:```grey{0h_n0_mY_5up3r_53cr3t_4dm1n_fl4g}```
