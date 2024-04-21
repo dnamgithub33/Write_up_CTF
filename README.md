@@ -56,3 +56,15 @@
     ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/7df287f7c2fc34abeac2180dfbc2e03aad1261b1/image_grey/6.png)
 
     flag:```grey{0h_n0_mY_5up3r_53cr3t_4dm1n_fl4g}```
+2. Grey survey
+    
+    * Chưa dựng lại được chall
+
+    Challenge cho phép ta gửi lên một giá trị vote bắt buộc giá trị phải lớn hơn -1 và nhỏ hơn 1. 
+
+    ![img](7)
+
+    Để challenge trả về flag thì phải vote một giá trị sao cho phần nguyên của giá trị đó phải cộng với score lớn hơn 1 với score ban đầu được khởi tạo là ```-0.42069```. Tuy nhiên, giá trị này chỉ được phép nhỏ hơn 1 và lớn hơn -1 nên phần nguyên luôn bằng 0, không làm tăng score được. Lỗi nằm ở hàm lấy phần nguyên ```parseInt()``` của javascript, khi truyền giá trị ```0.0000001``` vào hàm này thì kết quả trả về bằng 1 thay vì bằng 0. Khi gửi giá trị vote ```0.0000001``` và nhận data trả về là score sau khi cộng thì đã có sự thay đổi, tiếp tục gửi một lần nữa và nhận được flag.
+
+    flag: ```grey{50m371m35_4_l177l3_6035_4_l0n6_w4y}```
+
