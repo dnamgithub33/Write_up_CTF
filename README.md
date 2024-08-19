@@ -75,8 +75,45 @@
 
     ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/fe0c7b58609be893160a39e0063eb43cc49e18b2/image_PTITCTF/1.png)
 
-    Chức năng: cho phép truyền vào một địa chỉ IP và trả về kết quả là ```PTITCTF2024```
+    Chức năng: cho phép truyền vào một địa chỉ IP và trả về kết quả là ```PTITCTF2024```.
 
     ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/fe0c7b58609be893160a39e0063eb43cc49e18b2/image_PTITCTF/1.png)
+
+    Có vẻ như trang web đang xử lý dữ liệu liên quan đến địa chỉ IP (phỏng đoán là Ping). Vì chức năng chỉ trả về kết quả là  ```PTITCTF2024```dù đúng dù sai nên ta thử payload timebase ```8.8.8.8; sleep 5``` và thấy thời gian trả về cao hơn so với bình thường 5 giây:
+
+    ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/c1a6fedf0342ebac12192a10b7e92aa070417e25/image_PTITCTF/3.png)
+
+    ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/07719e8c203d1accc397875cb798556b00de4358/image_PTITCTF/4.png)
+
+    Flag nằm ở ```/flag.txt```, tiến hành kiểm tra flag có độ dài bao nhiêu bằng lệnh comand sau: 
+
+    ```do_dai=$(cat ../flag.txt | wc -m);if [ $do_dai -lt 52 ]; then   sleep 5; fi```
+
+    Thử dần và biết được flag dài 51 ký tự
+
+    ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/4f91c8b4c175cf60dbf8c33e86e9e96372b174c1/image_PTITCTF/5.png)
+
+    Thử kiểm tra chữ cái đầu tiên có phải ```P``` không bằng payload:
+
+    ```chuoi=$(cat ../flag.txt | cut -c1);if [ "$chuoi" = "P" ]; then   sleep 5; fi```
+
+    ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/6d276a9e4eea39e5c5ade259a48b087532205b46/image_PTITCTF/7.png)
+
+    Tiến hành Intruder với payload 1 là từ vị trí từ 1 đến 51, payload 2 là các ký tự, số, và các ký hiệu:
+
+    ![ịmg](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/1f77381bd55972c5dd814f7847fbcb397b07dee4/image_PTITCTF/8.png)
+
+    ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/1f77381bd55972c5dd814f7847fbcb397b07dee4/image_PTITCTF/9.png)
+
+    ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/75fbe1b53f58b5341ab94060d6bb4735b4ca3c4f/image_PTITCTF/10.png)
+
+
+
+
+
+    
+    
+    
+
 
 
