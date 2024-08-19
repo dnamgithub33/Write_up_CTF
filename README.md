@@ -117,6 +117,10 @@
 
     ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/75fbe1b53f58b5341ab94060d6bb4735b4ca3c4f/image_PTITCTF/11.png)
 
+    Vì chall này được dựng lại mà không có flag giống như trong cuộc thi nên ta nhận được flag test:
+
+    ```PTITCTF{fake_flag_for_test}```
+
 
 
     
