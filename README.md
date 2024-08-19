@@ -68,3 +68,11 @@
 
     flag: ```grey{50m371m35_4_l177l3_6035_4_l0n6_w4y}```
 
+# PTITCTF 2024
+1. Don't reverse
+
+    Đề bài cho ta một trang web như sau:
+
+    ![img](1)
+    
+
