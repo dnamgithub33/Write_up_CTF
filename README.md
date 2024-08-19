@@ -71,8 +71,12 @@
 # PTITCTF 2024
 1. Don't reverse
 
-    Đề bài cho ta một trang web như sau:
+    Đề bài cho ta một trang web như sau và được biết flag nằm ở ```/flag.txt```:
 
-    ![img](1)
-    
+    ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/fe0c7b58609be893160a39e0063eb43cc49e18b2/image_PTITCTF/1.png)
+
+    Chức năng: cho phép truyền vào một địa chỉ IP và trả về kết quả là ```PTITCTF2024```
+
+    ![img](https://github.com/dnamgithub33/Write_up_CTF_2024/blob/fe0c7b58609be893160a39e0063eb43cc49e18b2/image_PTITCTF/1.png)
+
 
