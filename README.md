@@ -1,3 +1,9 @@
+[IrisCTF](https://github.com/dnamgithub33/Write_up_CTF_2024/tree/main?tab=readme-ov-file#irisctf-2024)
+
+[Grey cat the flag](https://github.com/dnamgithub33/Write_up_CTF_2024/tree/main?tab=readme-ov-file#grey-cat-the-flag-2024)
+
+[PTITCTF](https://github.com/dnamgithub33/Write_up_CTF_2024/tree/main?tab=readme-ov-file#ptitctf-2024)
+
 # IrisCTF 2024
 1. What's My Password?
 
