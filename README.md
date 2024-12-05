@@ -120,7 +120,7 @@
     Vì chall này được dựng lại mà không có flag giống như trong cuộc thi nên ta nhận được flag test:
 
     ```PTITCTF{fake_flag_for_test}```
-
+2. Còn một bài nhưng mất source :(
 
 
     
