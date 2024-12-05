@@ -1,6 +1,6 @@
-[IrisCTF](https://github.com/dnamgithub33/Write_up_CTF_2024/tree/main?tab=readme-ov-file#irisctf-2024)
+[IrisCTF](#irisctf-2024)
 
-[Grey cat the flag](https://github.com/dnamgithub33/Write_up_CTF_2024/tree/main?tab=readme-ov-file#grey-cat-the-flag-2024)
+[Grey cat the flag](#grey-cat-the-flag-2024)
 
 [PTITCTF](#ptitctf-2024)
 
