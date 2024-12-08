@@ -120,7 +120,7 @@
     Vì chall này được dựng lại mà không có flag giống như trong cuộc thi nên ta nhận được flag test:
 
     ```PTITCTF{fake_flag_for_test}```
-2. Còn một bài nhưng mất source :(
+2. Còn một bài SSTI nhưng mất source :(
 
 # AlpacaHack
 
@@ -128,11 +128,101 @@
 
     Đề bài cho ta một form login
 
-![img](image_alpacahack/1.png)
+    ![img](image_alpacahack/1.png)
+
+    Và source code đằng sau và một số tài khoản để đăng nhập trong cơ sở dữ liệu:
+
+    ![img](image_alpacahack/2.png)
+
+    ![img](image_alpacahack/3.png)
+    
+    Trong burp suite ta có gói tin đăng nhập:
+
+    ![img](image_alpacahack/4.png)
+
+    Sau khi đăng nhập server trả về cho ta một cookie với value là username. Form đăng nhập đã loại bỏ dấu ```'``` để chống SQL injection nhưng không hoàn toàn. Thử payload với username là dấu slash ```\``` và password là ``` OR 1=1-- -```. Câu truy vấn trở thành ```SELECT * FROM users WHERE username = '\' AND password = ' OR 1=1-- -'```
+    ở đây username sẽ thành chuỗi ```' AND password = ```, dấu slash đã biến dấu  ```'``` trong truy vấn trở thành một ký tự trong chuỗi username. Đương nhiên với điều kiện kèm ```OR 1=1``` thì sẽ lấy tất cả các tài khoản có trong cơ sở dữ liệu, theo đó tài khoản ```admin``` được lấy ở đầu và trả về cookie cho người dùng.
+
+    ![img](image_alpacahack/5.png)
+
+    Tuy nhiên, flag lại nằm ở bảng khác là bảng ```flag```. Ta tiến hành tấn công ```UNION  SELECT value, null FROM flag-- -``` để lấy ra flag làm username:
+
+    ![img](image_alpacahack/6.png)
+
+    Flag: ```Alpaca{SQLi_with0ut_5ingle_quot3s!}```
+
+2. Treasure Hunt
+    Bài cho ta một trang web chọn một icon hiển thị cho người dùng.
+
+    ![img](image_alpacahack/7.png)
+
+    Ở trong file cấu hình container Docker, flag được bằng cách má hóa nội dung flag thành một mã hash, mỗi kỹ tự thành một folder và chuỗi flag.txt cũng làm tương tự
+
+    ![img](image_alpacahack/8.png)
+
+    Có vẻ phải brute-force đường dẫn này, tên folder này nằm trong các ký tự ```1234567890abcdeflgtx```. Tuy nhiên, các ký tự ```f,l,a,g``` trong đường dẫn đều bị bỏ và báo lại status code 400
+
+    ![img](image_alpacahack/9.png)
+
+    Vì đây là url nên ta có thể thay thế nó bằng encode URL bằng mã Hex
+
+    ![img](image_alpacahack/10.png)
+
+    ![img](image_alpacahack/11.png)
+    
+    Tiến hành thử folder đầu tiên xem có sự khác nhau như thế nào giữa thư mục đúng với sai
+
+    ![img](image_alpacahack/12.png)
+
+    Có vẻ như ở thư mục đúng với ký tự thì nó rediect sang dường dẫn chứa trong thư mục đó
+
+    ![img](image_alpacahack/13.png)
+
+    Thiết lập mã khai thác như sau, với ban đầu path là ```flag = ''``` thử đường dẫn (path là biến tạm) với mỗi ký tự nếu trả về status 301 thì flag được cập nhật. Cho đến khi nhận được flag (status code  200) thì in ra màn hình.
+
+    ![img](image_alpacahack/14.png)
+
+    Flag: ```Alpaca{alpacapacapacakoshitantan}``` rất là wibu :v
+
+3. CountryDB
+    
+    Bài cho ta một trang web tìm kiếm tên quốc gia theo mã cung cấp
+
+    ![img](image_alpacahack/15.png)
+
+    Source như sau:
+
+    ![img](image_alpacahack/16.png)
+
+    Database như sau:
+
+    ![img](image_alpacahack/17.png)
+
+    Mã nước được gửi đi dưới dạng JSON:
+
+    ![img](image_alpacahack/18.png)
+
+    Mã nước được lọc bằng cách nếu độ dài không bằng 2 hoặc có dấu nháy đơn thì trả về 400. Tuy nhiên, JSON cho phép gửi đi một mảng và hàm len() có thể tính cả độ dài mảng.
+
+    ![img](image_alpacahack/19.png)
+
+    Mã nước (code) được truyền vào lệnh SQL bằng F-string nên mã nước ta truyền vào một bảng thì nó được chuyển thành chuỗi:
+
+    ![img](image_alpacahack/20.png)
+
+    Tiến hành truyền tấn công SQLi bằng payload ```[1, ') UNION SELECT flag AS name FROM flag --']```:
+
+    ![img](image_alpacahack/21.png)
+
+    Flag: ```CakeCTF{b3_c4refUl_wh3n_y0U_u5e_JS0N_1nPut}```
+
+
+
+
 
 
     
-    
+
     
 
 
