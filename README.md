@@ -208,7 +208,7 @@
 
     ![img](image_alpacahack/19.png)
 
-    Mã nước (code) được truyền vào lệnh SQL bằng F-string nên mã nước ta truyền vào một bảng thì nó được chuyển thành chuỗi:
+    Mã nước (code) được truyền vào lệnh SQL bằng F-string nên mã nước ta truyền vào một mảng thì nó được chuyển thành chuỗi:
 
     ![img](image_alpacahack/20.png)
 
