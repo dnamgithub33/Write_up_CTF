@@ -1,12 +1,17 @@
-[IrisCTF](#irisctf-2024)
 
-[Grey cat the flag](#grey-cat-the-flag-2024)
 
-[PTITCTF](#ptitctf-2024)
+<!-- toc -->
 
-[Alpacahack](#alpacahack)
+- [2024](#2024)
+  * [IrisCTF 2024](#irisctf-2024)
+  * [Grey cat the flag 2024](#grey-cat-the-flag-2024)
+  * [PTITCTF 2024](#ptitctf-2024)
+  * [AlpacaHack](#alpacahack)
 
-# IrisCTF 2024
+<!-- tocstop -->
+
+# 2024
+## IrisCTF 2024
 1. What's My Password?
 
     Đề bài cho ta source code của trang web như sau:
@@ -34,7 +39,7 @@
     ![img](image_iris/5.png)
 
     flag: ```irisctf{my_p422W0RD_1S_SQl1}```
-# Grey cat the flag 2024
+## Grey cat the flag 2024
 1. Baby Web
 
     Đề bài cho ta source như sau
@@ -76,7 +81,7 @@
 
     flag: ```grey{50m371m35_4_l177l3_6035_4_l0n6_w4y}```
 
-# PTITCTF 2024
+## PTITCTF 2024
 1. Don't reverse
 
     Đề bài cho ta một trang web như sau và được biết flag nằm ở ```/flag.txt```:
@@ -124,7 +129,7 @@
     ```PTITCTF{fake_flag_for_test}```
 2. Còn một bài SSTI nhưng mất source :(
 
-# AlpacaHack
+## AlpacaHack
 
 1. Simple Login
 
@@ -217,15 +222,41 @@
     ![img](image_alpacahack/21.png)
 
     Flag: ```CakeCTF{b3_c4refUl_wh3n_y0U_u5e_JS0N_1nPut}```
+# 2025
+## KnightCTF2025
 
+1. KnightConnect (Lỗ hổng bảo mật: token yếu và dễ đoán, whitebox)
 
+    Challenge được xây dựng bằng Laravel, flag ở đây được truyền vào trong model, khi người dùng đăng nhập là admin thì mới được xem.
 
+    ![alt text](/knightctf2025_img/1.png)
 
+    Ở controller, ta thấy có 2 cách để đăng nhập vào hệ thống:
 
+    - Cách đầu tiên là đăng nhập bằng username và password
 
-    
+    ![alt text](/knightctf2025_img/2.png)
 
-    
+    - Cách thứ 2 là sử dụng đường dẫn chứa token sinh từ một route của ứng dụng web:
 
+    ![alt text](/knightctf2025_img/3.png)
 
+    và route sinh đường dẫn đăng nhập :
 
+    ![alt text](/knightctf2025_img/4.png)
+
+    Nhận thấy được rằng token ở đây chỉ là mã hóa của email và thời gian sinh token nên dễ dàng có thể giả mạo token không sinh từ ứng dụng.
+
+    Vậy, bây giờ phải đi tìm các email của admin để tiến hành giả mạo. Quan sát danh sách routes trong source, ta thấy có route ```/contact```
+
+    ![alt text](/knightctf2025_img/5.png)
+
+    Truy cập ```/contact``` thì ta nhận được một danh sách email của admin
+
+    ![alt text](/knightctf2025_img/6.png)
+
+    Tiến hành tạo một route từ source mà đề bài cho để lấy link đăng nhập với từng email vừa tìm được và với email ```nomanprodhan@knightconnect.com``` thì nhận được flag:
+
+    ![alt text](/knightctf2025_img/7.png)
+
+*Do chall đã đóng nên chỉ có thể nêu cách làm.*
