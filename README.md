@@ -7,6 +7,8 @@
   * [Grey cat the flag 2024](#grey-cat-the-flag-2024)
   * [PTITCTF 2024](#ptitctf-2024)
   * [AlpacaHack](#alpacahack)
+- [2025](#2025)
+  * [KnightCTF2025](#knightctf2025)
 
 <!-- tocstop -->
 
